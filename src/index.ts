@@ -1,5 +1,6 @@
 import app from "./app";
 import { connectToDatabase } from "./db/dbConnection";
+import './events/tradeEventListener';
 
 const PORT = 5000
 
