@@ -1,8 +1,8 @@
 import { Router } from "express";
-
+import { initiateTrade } from "../controllers/trades.controllers";
 
 const tradeRouter = Router();
 
-tradeRouter.post("/", );
+tradeRouter.get("/", initiateTrade);
 tradeRouter.get("/{transactionId}",);
 export default tradeRouter;
