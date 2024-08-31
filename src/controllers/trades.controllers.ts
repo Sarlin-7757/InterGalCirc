@@ -40,16 +40,10 @@ export const initiateTrade = async (req: Request, res: Response) => {
     const buyerInventory = await Inventory.findOne({ stationId: buyer }).session(session);
     if (buyerInventory) {
       items.forEach((item: string) => {
-        if (buyerInventory.items.includes(item)) {
-          const itemIndex = buyerInventory.items.indexOf(item);
-          if (itemIndex > -1) {
-            buyerInventory.quantity -= 1;
-            if (buyerInventory.quantity <= 0) {
-              buyerInventory.items.splice(itemIndex, 1);
-              buyerInventory.quantity = 0;
-            }
-          }
+        if (!buyerInventory.items.includes(item)) {
+          buyerInventory.items.push(item);
         }
+        buyerInventory.quantity += 1; // Increase buyer’s inventory
       });
       await buyerInventory.save({ session });
     } else {
@@ -61,10 +55,14 @@ export const initiateTrade = async (req: Request, res: Response) => {
     const sellerInventory = await Inventory.findOne({ stationId: seller }).session(session);
     if (sellerInventory) {
       items.forEach((item: string) => {
-        if (!sellerInventory.items.includes(item)) {
-          sellerInventory.items.push(item);
+        const itemIndex = sellerInventory.items.indexOf(item);
+        if (itemIndex > -1) {
+          sellerInventory.quantity -= 1; // Decrease seller’s inventory
+          if (sellerInventory.quantity <= 0) {
+            sellerInventory.items.splice(itemIndex, 1);
+            sellerInventory.quantity = 0;
+          }
         }
-        sellerInventory.quantity += 1;
       });
       await sellerInventory.save({ session });
     } else {

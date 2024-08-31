@@ -7,8 +7,8 @@ tradeEventEmitter.on('tradeInitiated', async (trade) => {
     try {
       const newCargo = new Cargo({
         shipmentId: `shipment-${trade.transactionId}`,
-        origin: trade.buyer,
-        destination: trade.seller,
+        origin: trade.seller,
+        destination: trade.buyer,
         items: trade.items,
         status: 'pending',
         ETA: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) 
@@ -16,21 +16,20 @@ tradeEventEmitter.on('tradeInitiated', async (trade) => {
   
       await newCargo.save();
   
-       // Update inventory for the buyer
       await Inventory.updateOne(
         { stationId: trade.buyer },
         {
-          $inc: { quantity: -trade.items.length },
-          $pullAll: { items: trade.items }
+          $inc: { quantity: trade.items.length },
+          $addToSet: { items: { $each: trade.items } }
         }
       );
-  
+      
       // Update inventory for the seller
       await Inventory.updateOne(
         { stationId: trade.seller },
         {
-          $inc: { quantity: trade.items.length },
-          $addToSet: { items: { $each: trade.items } }
+          $inc: { quantity: -trade.items.length },
+          $pullAll: { items: trade.items }
         }
       );
       console.log(`Cargo created and inventory updated for trade ${trade.transactionId}`);

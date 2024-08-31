@@ -1,5 +1,7 @@
-import { Router } from "express";
+import { Router, Request, Response } from 'express';
+import { realTimeUpdateDetailFunction } from '../controllers/updates.controllers';
 
-const updatesRouter = Router();
+const updatesrouter = Router();
+updatesrouter.get('/real-time',realTimeUpdateDetailFunction);
 
-export default updatesRouter;
+export default updatesrouter;
