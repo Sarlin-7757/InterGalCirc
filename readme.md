@@ -2,6 +2,8 @@
 
 # 👽 Intergalactic Trade Network Backend System
 
+### Project Installation and Instructions for APIs documentation is inside `/docs` file.
+
 ## 🌟 Project Overview
 
 This project is designed to implement a backend system for an **Intergalactic Trade Network**. The system manages trade transactions, space cargo, and space station inventory across multiple planets and space stations. It is built to handle high-throughput data and provide real-time updates on trade activities, ensuring smooth and efficient trading across the galaxy.
