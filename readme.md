@@ -2,7 +2,7 @@
 
 # 👽 Intergalactic Trade Network Backend System
 
-### Project Installation and Instructions for APIs documentation is inside `/docs` file.
+### NOTE: Project Installation and Instructions for APIs documentation is inside `/docs` folder of this project.
 
 ## 🌟 Project Overview
 
