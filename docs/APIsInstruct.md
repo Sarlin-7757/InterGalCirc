@@ -1,5 +1,7 @@
 # API Usage Instructions
 
+<img src="https://github.com/user-attachments/assets/efbc2445-b302-4cef-8cab-5c5e76cf8891" alt="Screenshot from 2024-09-02 02-31-26" width="700" height="600"/>
+
 ## Introduction
 For testing the APIs of this project, we will be using Postman. A Postman collection has been prepared, which contains separate folders for each of the routes, namely:
 
@@ -164,6 +166,9 @@ To monitor real-time updates regarding trades and cargo, follow these steps:
 - **URL**: [http://localhost:5000/api/updates/real-time/](http://localhost:5000/api/updates/real-time/)
 
 The SSE connection will continue to push updates to your client as changes occur in the system.
+
+### Output for real-time updates after we initiate a trade. 
+<img src="https://github.com/user-attachments/assets/65d92310-8975-484b-b816-cd94004eb33c" alt="Screenshot from 2024-09-02 02-23-21" width="600" height="500"/>
 
 
 ## 4. Get Cargo Details 
