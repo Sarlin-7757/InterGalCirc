@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
         <p>Welcome to the API documentation. Here are the available endpoints:</p>
         <ul>
           <li><a href="/api/trades/">Trade API</a> - View all trades</li>
-          <li><a href="/api/trades/:transactionId">Trade by Transaction ID</a> - View a specific trade</li>
+          <li><a href="/api/trades/4b10ae3e-d7dd-4606-ae3b-7139b6aa2472">Trade by Transaction ID</a> - View a specific trade</li>
           <li><a href="/api/cargo/">Cargo API</a> - View all cargo</li>
           <li><a href="/api/inventory/">Inventory API</a> - View all inventory</li>
         </ul>
