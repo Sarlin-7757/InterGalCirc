@@ -1,7 +1,7 @@
 <img src="https://github.com/user-attachments/assets/ad14324e-72fe-44c3-b35f-a915d6eb5f3a" alt="Image" width="700" height="600"/>
 
 
-### HOSTED SITE: https://intergalcirc.onrender.com/api/trades/
+### HOSTED SITE: https://intergalcirc.onrender.com/
 **Can hit all the endpoints after api/path-nammes. ex- /api/cargo/:cargo:id**
 
 # 👽 Intergalactic Trade Network Backend System
